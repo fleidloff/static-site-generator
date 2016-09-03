@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/fleidloff/static-site-generator/issues"
   },
-  "homepage": "https://github.com/fleidloff/static-site-generator#readme"
+  "homepage": "https://github.com/fleidloff/static-site-generator#readme",
+  "dependencies": {
+    "htmlparser2": "^3.9.1"
+  }
 }
