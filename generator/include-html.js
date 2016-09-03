@@ -1,15 +1,16 @@
-const handler = {
-    // todo: real include file and run generator on that file with html
-    // or: get next generator?
-    onopentag: function(name, attrs){
-        return "(" + name + attrs;
-    },
-    ontext: function(text){
-        return "--)" + text;
-    },
-    onclosetag: function(name){
-        return ")" + name;
-    }
-};
+const fs = require("fs");
+const parse = require("./parser");
 
-module.exports = handler;
+
+function handle({ handlers, path }) {
+    return {
+        onopentag: function(name, attrs){
+            if (attrs && typeof attrs.src === "string") {
+                const file = fs.readFileSync(path + attrs.src);
+                return parse(file, { handlers, delegates: ["html"] });
+            }
+        }
+    };
+}
+
+module.exports = handle;
