@@ -1,9 +1,17 @@
+/* global require */
 const htmlparser = require("htmlparser2");
 const includeHtml = require( "./include-html");
+const html = require( "./html");
 const fs = require("fs");
 
+
+const output = fs.createWriteStream("./dist/demo.html");
+const demoFile = fs.readFileSync("./site/demo.html");
+
+
 const handlers = {
-    "include-html": includeHtml
+    "include-html": includeHtml,
+    "html": html
 };
 
 const delegate = {
@@ -29,29 +37,30 @@ const parser = new htmlparser.Parser({
             delegate.add(handlers[name]);
         }
         if (delegate.has()) {
-            return delegate.getCurrent().onopentag(name, attrs);
+            return output.write(delegate.getCurrent().onopentag(name, attrs));
         }
-        console.log("<", name, attrs);
+        console.log("< no handler:", name, attrs);
     },
     ontext: function(text){
         if (delegate.has()) {
-            return delegate.getCurrent().ontext(text);
+            return output.write(delegate.getCurrent().ontext(text));
         }
-        console.log("-->", text);
+        console.log("--> no handler", text);
     },
     onclosetag: function(name){
         if (delegate.has()) {
-            delegate.getCurrent().onclosetag(name);
+            output.write(delegate.getCurrent().onclosetag(name));
+        } else {
+            console.log("> no handler", name);
         }
         if (name in handlers) {
             delegate.remove();
             return;
         }
-        console.log(">", name);
     }
 }, {decodeEntities: true});
 
-const html = fs.readFileSync("./site/demo.html");
 
-parser.write(html);
+parser.write(demoFile);
 parser.end();
+output.end();
