@@ -16,5 +16,5 @@ const handlers = {
 const output = fs.createWriteStream("./dist/demo.html");
 const demoFile = fs.readFileSync("./site/demo.html");
 
-output.write(parse(demoFile, { handlers, path: "./site/" }));
+output.write(parse(demoFile, { handlers, source: { path: "./site/" }, destination: { path: "./dist/" } }));
 output.end();

@@ -1,7 +1,8 @@
 const fs = require("fs");
 
 
-function handle({ handlers, path }) {
+function handle({ source, destination }) {
+    console.log(source, destination);
     return {
         onopentag: function(name, attrs){
             if (attrs && typeof attrs.src === "string") {

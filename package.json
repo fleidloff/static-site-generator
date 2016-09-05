@@ -4,7 +4,7 @@
   "description": "a very simple site generator that works with plain html and css.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node generator/generate.js site/demo.html"
   },
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@ const htmlparser = require("htmlparser2");
 
 
 function parse(content, config) {
-    const { handlers, delegates = [], path } = config;
+    const { handlers, delegates = [], source, destination } = config;
     let result = "";
 
     const delegate = {
