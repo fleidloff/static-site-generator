@@ -13,6 +13,7 @@ const handlers = {
     "css": css
 };
 
+// todo: get files from console parameters
 const output = fs.createWriteStream("./dist/demo.html");
 const demoFile = fs.readFileSync("./site/demo.html");
 
