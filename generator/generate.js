@@ -9,7 +9,7 @@ const parse = require("./parser");
 const path = require("path");
 const mkdirp = require("mkdirp");
 
-mkdirp("dist");
+mkdirp("docs");
 
 const handlers = {
     "include-html": includeHtml,
@@ -20,7 +20,7 @@ const handlers = {
 };
 
 const inputFile = "./site/demo.html";
-const outputFile = "./dist/demo.html";
+const outputFile = "./docs/demo.html";
 
 // todo: get files from console parameters
 const output = fs.createWriteStream(outputFile);
