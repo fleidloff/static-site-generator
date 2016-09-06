@@ -1,5 +1,5 @@
 const fs = require("fs");
-const copyFiles = require("./helper/copyFiles");
+const copyFiles = require("../helper/copyFiles");
 const Delegator = require("./delegator");
 
 

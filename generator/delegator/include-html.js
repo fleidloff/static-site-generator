@@ -1,5 +1,5 @@
 const fs = require("fs");
-const parse = require("./parser");
+const parse = require("../parser");
 const Delegator = require("./delegator");
 
 

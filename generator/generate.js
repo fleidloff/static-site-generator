@@ -1,9 +1,11 @@
 /* global require */
-const includeHtml = require( "./include-html");
-const html = require( "./html");
-const doctype = require("./doctype");
-const css = require("./css");
-const script = require("./script");
+const includeHtml = require( "./delegator/include-html");
+const html = require( "./delegator/html");
+const doctype = require("./delegator/doctype");
+const css = require("./delegator/css");
+const script = require("./delegator/script");
+const img = require("./delegator/img");
+const link = require("./delegator/link");
 const fs = require("fs");
 const parse = require("./parser");
 const path = require("path");
@@ -16,7 +18,9 @@ const handlers = {
     html,
     "!doctype": doctype,
     css,
-    script
+    script,
+    img,
+    link
 };
 
 const inputFile = "./site/demo.html";

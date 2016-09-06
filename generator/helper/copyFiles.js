@@ -4,7 +4,7 @@ const mkdirp = require("mkdirp");
 
 
 function copyFiles({ files, source, destination }) {
-	const result = files.split(",").map(file => file.trim());
+	const result = files.split(",").map(file => file.trim()).filter(file => file.substr(0, 4) !== "http");
     result.forEach(file => {
         mkdirp(path.dirname(destination.path + file));
         if (!fs.existsSync(destination.path + file)) {

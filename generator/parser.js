@@ -37,7 +37,7 @@ function parse(content, config) {
                 console.log("< no handler onprocessinginstruction:", name, data);
             }
         },
-        onopentag: function(name, attrs){
+        onopentag(name, attrs) {
             if (name in handlers) {
                 delegate.add(handlers[name]);
             }
@@ -47,14 +47,14 @@ function parse(content, config) {
                 console.log("< no handler:", name, attrs);
             }
         },
-        ontext: function(text){
+        ontext(text) {
             if (delegate.has() && typeof delegate.getCurrent().ontext === "function") {
                 result += delegate.getCurrent().ontext(text);
             } else {
                 console.log("--> no handler", text);
             }
         },
-        onclosetag: function(name){
+        onclosetag(name) {
             if (delegate.has() && typeof delegate.getCurrent().onclosetag === "function") {
                 result += delegate.getCurrent().onclosetag(name);
             } else {
