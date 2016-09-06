@@ -10,8 +10,8 @@ function parse(content, config) {
         has() {
             return this.delegates.length > 0;
         },
-        getCurrent() {
-            return this.delegates[this.delegates.length - 1]
+        getCurrent(n = 0) {
+            return this.delegates[this.delegates.length - 1 -n];
         },
         add(delegator) {
             this.delegates.push(delegator(config));

@@ -3,6 +3,7 @@ const includeHtml = require( "./include-html");
 const html = require( "./html");
 const doctype = require("./doctype");
 const css = require("./css");
+const script = require("./script");
 const fs = require("fs");
 const parse = require("./parser");
 const path = require("path");
@@ -12,9 +13,10 @@ mkdirp("dist");
 
 const handlers = {
     "include-html": includeHtml,
-    "html": html,
+    html,
     "!doctype": doctype,
-    "css": css
+    css,
+    script
 };
 
 const inputFile = "./site/demo.html";
@@ -24,5 +26,9 @@ const outputFile = "./dist/demo.html";
 const output = fs.createWriteStream(outputFile);
 const demoFile = fs.readFileSync(inputFile);
 
-output.write(parse(demoFile, { handlers, source: { path: path.dirname(inputFile) + "/" }, destination: { path: path.dirname(outputFile) + "/" } }));
+output.write(parse(demoFile, { 
+	handlers, 
+	source: { path: path.dirname(inputFile) + "/" }, 
+	destination: { path: path.dirname(outputFile) + "/" } 
+}));
 output.end();
