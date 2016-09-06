@@ -13,8 +13,8 @@ function parse(content, config) {
         getCurrent(n = 0) {
             return this.delegates[this.delegates.length - 1 -n];
         },
-        add(delegator) {
-            this.delegates.push(delegator(config));
+        add(Delegator) {
+            this.delegates.push(new Delegator(config));
         },
         remove() {
             this.delegates.pop();

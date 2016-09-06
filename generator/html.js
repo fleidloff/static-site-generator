@@ -1,15 +1,15 @@
-function handle() {
-    return {
-        onopentag: function(name, attrs){
-            return `<${name}${Object.keys(attrs).length > 0 ? " " + Object.keys(attrs).map(key => `${key}="${attrs[key]}"`).join(" ") : ""}>`;
-        },
-        ontext: function(text){
-            return text;
-        },
-        onclosetag: function(name){
-            return `</${name}>`;
-        }
-    };
+const Delegator = require("./delegator");
+
+class Html extends Delegator {
+    onopentag(name, attrs){
+        return `<${name}${Object.keys(attrs).length > 0 ? " " + Object.keys(attrs).map(key => `${key}="${attrs[key]}"`).join(" ") : ""}>`;
+    }
+    ontext(text){
+        return text;
+    }
+    onclosetag(name){
+        return `</${name}>`;
+    }  
 }
 
-module.exports = handle;
+module.exports = Html;

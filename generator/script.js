@@ -1,18 +1,16 @@
 const fs = require("fs");
 const copyFiles = require("./helper/copyFiles");
-const handleHtml = require("./html")();
+const Html = require("./html");
 
-function handle({ source, destination }) {
-    return {
-        onopentag: function(name, attrs){
-            if (name === "script" && attrs && typeof attrs.src === "string") {
-                copyFiles({ files: attrs.src, source, destination });
-            }
-            return handleHtml.onopentag(name, attrs);
-        },
-        ontext: handleHtml.ontext,
-        onclosetag: handleHtml.onclosetag
-    };
+
+class Script extends Html {
+	onopentag(name, attrs){
+        if (name === "script" && attrs && typeof attrs.src === "string") {
+        	const { source, destination } = this.config;
+            copyFiles({ files: attrs.src, source, destination });
+        }
+        return super.onopentag(name, attrs);
+    }
 }
 
-module.exports = handle;
+module.exports = Script;

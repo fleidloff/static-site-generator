@@ -1,9 +1,9 @@
-function handle() {
-    return {
-        onprocessinginstruction: function(name, data){
-            return `<${data}>\n`;
-        },
-    };
+const Delegator = require("./delegator");
+
+class DocType extends Delegator {
+	onprocessinginstruction(name, data) {
+        return `<${data}>\n`;
+    }	
 }
 
-module.exports = handle;
+module.exports = DocType;
