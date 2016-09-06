@@ -1,8 +1,7 @@
-const fs = require("fs");
 const Delegator = require("./delegator");
-const less = require("less");
-const mkdirp = require("mkdirp");
 const path = require("path");
+
+const spawn = require('child_process').spawn;
 
 
 class Css extends Delegator {
@@ -11,14 +10,9 @@ class Css extends Delegator {
             const { source, destination } = this.config;
             const file = attrs.src.replace(".less", ".css");
 
-            mkdirp(path.dirname(destination.path + file));
-            less.render(fs.readFileSync(source.path + attrs.src))
-                .then((output) => {
-                    console.log(output);
-                    fs.writeFileSync(destination.path + file, output.css);
-            }).catch(console.error);
+            const less = spawn("./node_modules/.bin/lessc", [source.path + attrs.src, destination.path + file]);
 
-            return `<link rel="stylesheet" href="${file}" />`;
+            return `<link rel="stylesheet" href="${file}" />\n`;
         } else {
             throw new Error("<css> tag must have a src attribute.");
         }
