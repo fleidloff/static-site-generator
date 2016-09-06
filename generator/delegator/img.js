@@ -2,6 +2,8 @@ const fs = require("fs");
 const copyFiles = require("../helper/copyFiles");
 const Html = require("./html");
 const lwip = require("lwip");
+const mkdirp = require("mkdirp");
+const path = require("path");
 
 
 class Script extends Html {
@@ -17,6 +19,7 @@ class Script extends Html {
 				fileName = fileName.join(".");
 				attrs.src = fileName;
 				delete attrs.resize;
+				mkdirp(path.dirname(destination.path + fileName));
 
     			lwip.open(source.path + file, (err, image) => {
     				if (err) {
