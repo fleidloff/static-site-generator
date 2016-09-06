@@ -8,7 +8,7 @@ function handle({ source, destination }) {
     return {
         onopentag: function(name, attrs){
             if (attrs && typeof attrs.src === "string") {
-                const files = attrs.src.split(",");
+                const files = attrs.src.split(",").map(file => file.trim());
                 files.forEach(file => {
                     mkdirp(path.dirname(destination.path + file));
                     if (!fs.existsSync(destination.path + file)) {
