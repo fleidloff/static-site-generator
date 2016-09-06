@@ -4,7 +4,7 @@
   "description": "a very simple site generator that works with plain html and css.",
   "main": "index.js",
   "scripts": {
-    "test": "node generator/generate.js site/demo.html"
+    "test": "node generator/generate.js site/demo.html dist/demo.html"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fleidloff/static-site-generator#readme",
   "dependencies": {
-    "htmlparser2": "^3.9.1"
+    "htmlparser2": "^3.9.1",
+    "mkdirp": "^0.5.1"
   }
 }

@@ -5,6 +5,10 @@ const doctype = require("./doctype");
 const css = require("./css");
 const fs = require("fs");
 const parse = require("./parser");
+const path = require("path");
+const mkdirp = require("mkdirp");
+
+mkdirp("dist");
 
 const handlers = {
     "include-html": includeHtml,
@@ -13,9 +17,12 @@ const handlers = {
     "css": css
 };
 
-// todo: get files from console parameters
-const output = fs.createWriteStream("./dist/demo.html");
-const demoFile = fs.readFileSync("./site/demo.html");
+const inputFile = "./site/demo.html";
+const outputFile = "./dist/demo.html";
 
-output.write(parse(demoFile, { handlers, source: { path: "./site/" }, destination: { path: "./dist/" } }));
+// todo: get files from console parameters
+const output = fs.createWriteStream(outputFile);
+const demoFile = fs.readFileSync(inputFile);
+
+output.write(parse(demoFile, { handlers, source: { path: path.dirname(inputFile) + "/" }, destination: { path: path.dirname(outputFile) + "/" } }));
 output.end();
