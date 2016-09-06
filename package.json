@@ -18,6 +18,7 @@
   "homepage": "https://github.com/fleidloff/static-site-generator#readme",
   "dependencies": {
     "htmlparser2": "^3.9.1",
+    "less": "^2.7.1",
     "lwip": "0.0.9",
     "mkdirp": "^0.5.1"
   }

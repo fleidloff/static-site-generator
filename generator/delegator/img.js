@@ -22,7 +22,6 @@ class Script extends Html {
     				if (err) {
     					console.error("something went wrong while opening the image");
     				}	
-    				
     				image.batch()
     					.resize(resize[0], resize[1])
     					.writeFile(destination.path + fileName, err => {

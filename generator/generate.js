@@ -3,6 +3,7 @@ const includeHtml = require( "./delegator/include-html");
 const html = require( "./delegator/html");
 const doctype = require("./delegator/doctype");
 const css = require("./delegator/css");
+const less = require("./delegator/less");
 const script = require("./delegator/script");
 const img = require("./delegator/img");
 const link = require("./delegator/link");
@@ -18,6 +19,7 @@ const handlers = {
     html,
     "!doctype": doctype,
     css,
+    less,
     script,
     img,
     link
