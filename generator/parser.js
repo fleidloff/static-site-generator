@@ -64,7 +64,7 @@ function parse(content, config) {
                 delegate.remove();
             }
         }
-    }, { decodeEntities: true, recognizeSelfClosing: true, recognizeCDATA: true });
+    }, { recognizeSelfClosing: true, recognizeCDATA: true });
 
     parser.write(content);
     parser.end();
