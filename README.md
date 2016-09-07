@@ -2,8 +2,8 @@
 
 ## todo
 
-* create npm module
+* md5 hashes for copied files
+* minify css + js + html
 * documentation
 * integration tests
-* minify css + js + html
-* md5 hashes for copied files
+* create npm module
