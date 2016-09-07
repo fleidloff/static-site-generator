@@ -6,6 +6,7 @@ const less = require("./delegator/less");
 const script = require("./delegator/script");
 const img = require("./delegator/img");
 const link = require("./delegator/link");
+const markdown = require("./delegator/markdown");
 const fs = require("fs");
 const parse = require("./parser");
 const path = require("path");
@@ -20,7 +21,8 @@ const handlers = {
     less,
     script,
     img,
-    link
+    link,
+    markdown
 };
 
 const inputFile = "./site/demo.html";
