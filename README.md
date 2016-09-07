@@ -2,8 +2,7 @@
 
 ## todo
 
-* first create css from less and after that handle <link> tag (for hashing)?
-* md5 hashes for copied files
+* investigate: why is md5 hash of all css files identical?
 * minify css + js + html
 * documentation
 * integration tests
