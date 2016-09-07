@@ -2,8 +2,6 @@
 
 ## todo
 
-* self closing tags (like link, img, ...)
-* markdown
 * create npm module
 * documentation
 * integration tests
