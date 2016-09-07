@@ -2,7 +2,7 @@ const Delegator = require("./delegator");
 const path = require("path");
 const fs = require("fs");
 
-const spawn = require('child_process').spawn;
+const spawn = require("child_process").spawn;
 
 
 class Css extends Delegator {
@@ -15,7 +15,7 @@ class Css extends Delegator {
             }
             return `<link rel="stylesheet" href="${file}" />\n`;
         } else {
-            throw new Error("<css> tag must have a src attribute.");
+            throw new Error("<less> tag must have a src attribute.");
         }
     }
 }
