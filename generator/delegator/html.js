@@ -8,6 +8,7 @@ class Html extends Delegator {
         return text;
     }
     onclosetag(name){
+        console.log("close", name);
         return `</${name}>`;
     }  
 }
