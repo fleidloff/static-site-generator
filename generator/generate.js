@@ -12,7 +12,9 @@ const parse = require("./parser");
 const path = require("path");
 const mkdirp = require("mkdirp");
 
-mkdirp("docs");
+mkdirp("./docs");
+mkdirp("./docs/generated");
+
 
 const handlers = {
     "include-html": includeHtml,
