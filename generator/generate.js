@@ -15,6 +15,9 @@ const mkdirp = require("mkdirp");
 mkdirp("./docs");
 mkdirp("./docs/generated");
 
+mkdirp("./esquina/docs");
+mkdirp("./esquina/docs/generated");
+
 
 const handlers = {
     "include-html": includeHtml,
@@ -27,8 +30,10 @@ const handlers = {
     markdown
 };
 
-const inputFile = "./site/demo.html";
-const outputFile = "./docs/demo.html";
+const inputFile = process.argv[2] || "./site/demo.html";
+const outputFile = process.argv[3] || "./docs/demo.html";
+
+console.log(inputFile, outputFile);
 
 // todo: get files from console parameters
 const output = fs.createWriteStream(outputFile);
