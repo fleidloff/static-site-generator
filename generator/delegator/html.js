@@ -9,7 +9,6 @@ class Html extends Delegator {
         return text;
     }
     onclosetag(name){
-        console.log("close", name);
         if (!isSelfClosing(name)) {
             return `</${name}>`;
         } else {

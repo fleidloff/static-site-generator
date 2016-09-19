@@ -1,25 +1,26 @@
 <!doctype html>
 <html>
 	<head>
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" />
 		<less src="less/style.less" />
 	</head>
-	<body>
+	<body class="portrait">
 		<div class="page">
 			<img src="img/esquina_latina_hq1.jpg" copyOnly="yes" />
 			<div class="page-poster page-poster--1">
-				<img src="img/logo.jpg" />
+				<div class="page-logo page-logo--1">
+					<img src="img/hatBanner.png" />
+				</div>
 			</div>
-			<div class="page-content">
-				some content
+			<div class="page-content page-content--1">
+				<include-html src="page-content--1.html"></include-html>
 			</div>
 		</div>
 		<div class="page">
 			<img src="img/esquina_latina_hq2.jpg" copyOnly="yes" />
-			<div class="page-poster page-poster--2">
-				poster 2
-			</div>
+			<div class="page-poster page-poster--2">	 </div>
 			<div class="page-content">
-				some content 2
+				<include-html src="page-content--2.html"></include-html>
 			</div>
 		</div>
 		<div class="footer">Footer</div>

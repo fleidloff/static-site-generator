@@ -27,8 +27,32 @@
 .page-content {
   position: relative;
   margin-top: 100vh;
-  min-height: 100vh;
-  background: green;
+  background: white;
+}
+.page-content p,
+.page-content h2,
+.page-content h3,
+.page-content iframe {
+  padding: 10px;
+}
+.page-logo {
+  text-align: center;
+}
+.portrait .page-poster--1 {
+  height: 50vh;
+  top: -50vh;
+  background-position: center -25vh;
+}
+.portrait .page-content--1 {
+  margin-top: 50vh;
+}
+.portrait .page-logo--1 {
+  display: none;
+}
+.page-content p,
+.page-content h2,
+.page-content h3 {
+  padding: 10px;
 }
 body {
   padding: 0;

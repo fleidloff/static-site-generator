@@ -6,7 +6,7 @@ const Html = require("./html");
 
 class Script extends Html {
 	onopentag(name, attrs) {
-        if (name === "link" && attrs && typeof attrs.href === "string") {
+        if (name === "link" && attrs && typeof attrs.href === "string" && attrs.href.indexOf("http") !== 0) {
         	const { source, destination } = this.config;
             copyFiles({ files: attrs.href, source, destination });
             const fileNames = addHash({ files: attrs.href, source, destination });
