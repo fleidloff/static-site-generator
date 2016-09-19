@@ -11,6 +11,19 @@
   top: -100vh;
   left: 0;
 }
+.page-poster--1 {
+  background: url("../../img/esquina_latina_hq1.jpg") no-repeat center center fixed;
+}
+.page-poster--2 {
+  background: url("../../img/esquina_latina_hq2.jpg") no-repeat center center fixed;
+}
+.page-poster--1,
+.page-poster--2 {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .page-content {
   position: relative;
   margin-top: 100vh;

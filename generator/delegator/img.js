@@ -6,7 +6,7 @@ const mkdirp = require("mkdirp");
 const path = require("path");
 
 
-class Script extends Html {
+class Img extends Html {
 	onopentag(name, attrs) {
         if (name === "img" && attrs && typeof attrs.src === "string") {
         	const { source, destination } = this.config;
@@ -39,8 +39,12 @@ class Script extends Html {
             	copyFiles({ files: attrs.src, source, destination });
         	}
         }
-        return super.onopentag(name, attrs);
+        if (attrs.copyonly === "yes") {
+			return "";
+		} else {
+			return super.onopentag(name, attrs);
+		}
     }
 }
 
-module.exports = Script;
+module.exports = Img;
