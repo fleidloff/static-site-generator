@@ -23,7 +23,7 @@ class Img extends Html {
 
     			lwip.open(source.path + file, (err, image) => {
     				if (err) {
-    					console.error("something went wrong while opening the image");
+    					return console.error("something went wrong while opening the image", err);
     				}	
     				image.batch()
     					.resize(resize[0], resize[1])
