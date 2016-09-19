@@ -15,8 +15,8 @@ const mkdirp = require("mkdirp");
 mkdirp("./docs");
 mkdirp("./docs/generated");
 
-mkdirp("./esquina/docs");
-mkdirp("./esquina/docs/generated");
+mkdirp("./docs/esquina");
+mkdirp("./docs/esquina/generated");
 
 
 const handlers = {
