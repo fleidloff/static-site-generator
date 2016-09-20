@@ -6,7 +6,7 @@ function checkPortraitOrLandscape() {
 	if (isPortrait()) {
     	document.body.className = "portrait";
 	} else {
-   		document.body.className = "";
+   		document.body.className = "landscape";
 	}	
 }
 

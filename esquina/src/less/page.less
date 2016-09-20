@@ -19,12 +19,14 @@
 		&--2 {
 			background: url("../../img/esquina_latina_hq2.jpg") no-repeat center center fixed;
 		}
-
-		&--1, &--2 {
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
+		&--1 &--border {
+			border: 1px solid white;
+			margin: 10px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
 		}
 	}
 
@@ -35,23 +37,50 @@
 
 		p, h2, h3, iframe {
 			padding: 10px;
+			max-width: 700px;
 		}
 	}
 
 	&-logo {
 		text-align: center;
+		margin-top: 10px;
 	}
 
+}
+
+.landscape {
+
+	.page {
+		&-poster {
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+
+			&--border {
+				border: 1px solid white;
+				margin: 10px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+			}
+		}
+	}
 }
 
 .portrait {
 
 	.page {
 
-		&-poster--1 {
-			height: 50vh;
-			top: -50vh;
-			background-position: center -25vh;
+		&-poster {
+			background-size: 100%;
+			background-position: 0 0;
+
+			&--border {
+				top: 50vh;
+			}
 		}
 
 		&-content--1 {
